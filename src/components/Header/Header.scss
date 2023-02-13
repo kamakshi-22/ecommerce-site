@@ -1,0 +1,66 @@
+@import "../../index.scss";
+
+header{
+    min-height: 50px;
+    background-color: $dark;
+    color: #fff3e7;
+    display: flex;
+
+    .header__logo{
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        font-weight: 900;
+        margin: 0 1rem;
+        padding: 1rem 0;
+        color: $light;
+        text-decoration: none;
+    }
+
+    .header__menu{
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1rem;
+
+        @media screen and (min-width: 768px) {
+            gap: 5rem;
+        }
+
+        .header__menu-item{
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff3e7;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            color: $light;
+            text-decoration: none;
+
+            &:hover{
+                color: #ed7d29;
+            }
+        }
+
+        
+    }
+
+    .header__cart{
+        display: flex;
+        align-items: center;
+        margin-right: 1.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff3e7;
+        transition: all 0.3s ease-in-out;
+
+        &:hover{
+            color: #ed7d29;
+        }
+
+        ion-icon{
+            font-size: 28px;
+            cursor: pointer;
+        }
+    }
+}
