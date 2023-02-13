@@ -5,6 +5,7 @@ header{
     background-color: $dark;
     color: #fff3e7;
     display: flex;
+    position: relative;
 
     .header__logo{
         font-family: 'Playfair Display', serif;
