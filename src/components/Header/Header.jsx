@@ -8,7 +8,7 @@ export const Header = () => {
             <Link to='/' className='header__logo'>Nayika</Link>
             <div className='header__menu'>
                 <Link to='/' className='header__menu-item'>Home</Link>
-                <Link to='/products/:id' className='header__menu-item'>Shop</Link>
+                <Link to='/products' className='header__menu-item'>Shop</Link>
                 <Link to='/contact' className='header__menu-item'>Contact</Link>
             </div>
             <div className='header__cart'>
