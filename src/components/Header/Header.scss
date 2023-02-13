@@ -10,7 +10,7 @@ header{
         font-family: 'Playfair Display', serif;
         font-size: 2rem;
         font-weight: 900;
-        margin: 0 1rem;
+        margin: 0 3rem;
         padding: 1rem 0;
         color: $light;
         text-decoration: none;
@@ -29,7 +29,7 @@ header{
         }
 
         .header__menu-item{
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #fff3e7;
             transition: all 0.3s ease-in-out;
@@ -40,6 +40,14 @@ header{
             &:hover{
                 color: #ed7d29;
             }
+
+            &:active{
+                color: #ed7d29;
+            }
+
+            @media screen and (min-width: 768px) {
+                font-size: 1.2rem;
+            }
         }
 
         
@@ -48,7 +56,7 @@ header{
     .header__cart{
         display: flex;
         align-items: center;
-        margin-right: 1.5rem;
+        margin-right: 3rem;
         font-size: 1.2rem;
         font-weight: 600;
         color: #fff3e7;
