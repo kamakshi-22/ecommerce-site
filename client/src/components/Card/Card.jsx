@@ -7,15 +7,17 @@ export const Card = ({ item }) => {
 
         <div className='card'>
             <div className='card-title'>
-                <h3>{item.title}</h3>
+                <h3>{item?.attributes.title}</h3>
             </div>
             <div className='card-image'>
-                <img src={item.img} alt={item.title} />
+                <img
+                    src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
+                    alt={item?.attributes.title} />
             </div>
             <button className='card-btn'>
                 Add to Cart
                 <div className='card-price'>
-                    <h3>₹ {item.price}</h3>
+                    <h3>₹ {item?.attributes.price}</h3>
                 </div>
             </button>
             <div className='card-link'>
