@@ -3,6 +3,9 @@ import './Cart.scss'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { removeItem, resetCart } from '../../reducer/cartReducer'
+import { loadStripe } from "@stripe/stripe-js";
+import makeRequest  from "../../makeRequest";
+
 export const Cart = () => {
 
     const products = useSelector(state => state.cart.products)
@@ -13,6 +16,23 @@ export const Cart = () => {
             total += item.price * item.quantity
         })
         return total.toFixed(2)
+    }
+    const stripePromise = loadStripe(
+        "pk_test_51MbOkFSDRxvgzErfciAQM2bbMml2ec9BG6cEx0y218hn3vDvRPNcV6FxUUb8qd6qiva2W7lDHrwBQtUZdbda4Wqe008KcXhcoh"
+    );
+    const handlePayment = async () => {
+        try {
+            const stripe = await stripePromise;
+            const res = await makeRequest.post("/orders", {
+                products,
+            });
+            await stripe.redirectToCheckout({
+                sessionId: res.data.stripeSession.id,
+            });
+
+        } catch (err) {
+            console.log(err);
+        }
     }
     return (
         <div className='cart'>
@@ -33,7 +53,7 @@ export const Cart = () => {
                 <h2>Total</h2>
                 <p className='cart-total-price'>₹ {totalPrice()}</p>
             </div>
-            <button className='cart-btn'>
+            <button className='cart-btn' onClick={handlePayment}>
                 Checkout
             </button>
             <span className="reset-cart" onClick={() => dispatch(resetCart())}>

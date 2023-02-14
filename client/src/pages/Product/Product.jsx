@@ -32,25 +32,44 @@ export const Product = () => {
                                 <h2>₹ {data?.attributes?.price}</h2>
                             </div>
                             <div className='product-quantity'>
-                                <button className='quantity-btn' onClick={() => { (quantity>0) && setQuantity(quantity - 1) }}>-</button>
+                                <button className='quantity-btn' onClick={() => { (quantity > 0) && setQuantity(quantity - 1) }}>-</button>
                                 <span className='quantity'>{quantity}</span>
                                 <button className='quantity-btn' onClick={() => setQuantity(quantity + 1)}>+</button>
                             </div>
+                            <div className='product-size'>
+                                <h3>Size</h3>
+                                <div className='size'>
+                                    <button className='size-btn'>S</button>
+                                    <button className='size-btn'>M</button>
+                                    <button className='size-btn'>L</button>
+                                    <button className='size-btn'>XL</button>
+                                </div>
+                            </div>
                             <p className='product-description'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim dicta adipisci omnis corrupti, aliquam beatae! Officiis aliquam optio sunt in.
-                                <br /><br />
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam voluptate obcaecati recusandae harum eveniet sit ipsam fugit quis tenetur cupiditate!
+                                {data?.attributes?.desc}
                             </p>
                             <button className='card-btn'
-                                onClick={() => dispatch(addToCart({
+                                onClick={() => 
+                                    
+                                { alert("Product added successfully");
+                                    dispatch(addToCart({
                                     id: data.id,
                                     title: data.attributes.title,
                                     price: data.attributes.price,
                                     img: process.env.REACT_APP_UPLOAD_URL + data.attributes?.img?.data?.attributes?.url,
                                     quantity,
-                                }))}>
+                                })) }
+                                
+                                }>
                                 Add to Cart
                             </button>
+
+                            <div className='share-btn'>
+                                <span>Share:</span>
+                                <ion-icon name="logo-facebook"></ion-icon>
+                                <ion-icon name="logo-instagram"></ion-icon>
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </div>
                         </div>
                     </>}
         </div>

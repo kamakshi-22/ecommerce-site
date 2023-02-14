@@ -20,13 +20,17 @@ export const Card = ({ item }) => {
                     alt={item?.attributes.title} />
             </div>
             <button className='card-btn' 
-                onClick={() => dispatch(addToCart({
+                onClick={() => 
+                    { alert("Product added successfully");
+                    dispatch(addToCart({
                     id: item.id,
                     title: item.attributes.title,
                     price: item.attributes.price,
                     img: process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url,
                     quantity,
-                }))}
+                }))
+            }
+            }
             >
                 Add to Cart
                 <div className='card-price'>

@@ -11,19 +11,26 @@
     }
 
     .product-img {
-        width: 60%;
+        width: 80%;
         margin: 0 auto;
-        height: 300px;
-        overflow: hidden;
-        object-fit: cover;
+        height: 600px;
+        object-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
 
         @media screen and (min-width: 768px) {
-            width: 100%;
-            height: 500px;
             flex: 1;
         }
         @media screen and (min-width: 1024px) {
-            height: 600px;
+            height: 800px;
         }
     }
 
@@ -62,10 +69,38 @@
             }
         }
 
-        .product-quantity{
+        .product-size{
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            @media screen and (min-width: 768px) {
+                font-size: 1.2rem;
+            }
+            .size-btn{
+                width: 2rem;
+                height: 2rem;
+                border: none;
+                margin: 0 0.4rem;
+                font-weight: bold;
+                background-color: transparent;
+                color: $dark;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+
+                &:first-child,&:hover{
+                    border-bottom: 2px solid $dark;
+                }
+            }
+        }
+
+        .product-quantity{
+            display: flex;
+            align-items: center;
+            margin: 1rem 0 0 0;
+            gap: 1.5rem;
             font-size: 1rem;
             font-weight: 600;
             @media screen and (min-width: 768px) {
@@ -107,8 +142,8 @@
             background-color: $dark;
             color: $light;
             border: none;
+            margin: 1rem 0;
             padding: 1rem 0;
-            border-radius: 0.5rem;
             cursor: pointer;
             transition: all 0.3s ease-in-out;
             text-transform: uppercase;
@@ -128,6 +163,25 @@
                 font-size: 1rem;
             }
     
+        }
+
+        .share-btn{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            @media screen and (min-width: 768px) {
+                font-size: 1.5rem;
+            }
+            ion-icon{
+                color: $dark;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                &:hover{
+                    color: $primary;
+                }
+            }
         }
     }
 }
