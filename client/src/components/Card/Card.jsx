@@ -1,8 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Card.scss'
-
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../reducer/cartReducer'
 export const Card = ({ item }) => {
+
+    const dispatch = useDispatch() // dispatch the action to add the product to cart
+    const [quantity, setQuantity] = React.useState(1) // quantity of the product
+
     return (
 
         <div className='card'>
@@ -14,7 +19,15 @@ export const Card = ({ item }) => {
                     src={process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url}
                     alt={item?.attributes.title} />
             </div>
-            <button className='card-btn'>
+            <button className='card-btn' 
+                onClick={() => dispatch(addToCart({
+                    id: item.id,
+                    title: item.attributes.title,
+                    price: item.attributes.price,
+                    img: process.env.REACT_APP_UPLOAD_URL + item.attributes?.img?.data?.attributes?.url,
+                    quantity,
+                }))}
+            >
                 Add to Cart
                 <div className='card-price'>
                     <h3>₹ {item?.attributes.price}</h3>
