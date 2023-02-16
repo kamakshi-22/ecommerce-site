@@ -45,3 +45,8 @@ export const Card = ({ item }) => {
         </div>
     )
 }
+
+/**
+ * 
+    
+ */

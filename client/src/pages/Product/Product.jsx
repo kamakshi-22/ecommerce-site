@@ -5,12 +5,17 @@ import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../reducer/cartReducer'
 
+
+import {localData} from '../../assets/local/localData'
+
 export const Product = () => {
 
-    const id = useParams().id; // id of the product 
+    const id = useParams().id;// id of the product 
+    console.log(id)
     const { data, loading, error } = useFetch(`/products/${id}?populate=*`) // fetch the product data
     const dispatch = useDispatch() // dispatch the action to add the product to cart
     const [quantity, setQuantity] = React.useState(1) // quantity of the product
+
 
     return (
         <div className='product'>
