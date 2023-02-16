@@ -32,7 +32,7 @@ export const Product = () => {
                                 <h2>₹ {data?.attributes?.price}</h2>
                             </div>
                             <div className='product-quantity'>
-                                <button className='quantity-btn' onClick={() => { (quantity > 0) && setQuantity(quantity - 1) }}>-</button>
+                                <button className='quantity-btn' onClick={() => { (quantity > 1) && setQuantity(quantity - 1) }}>-</button>
                                 <span className='quantity'>{quantity}</span>
                                 <button className='quantity-btn' onClick={() => setQuantity(quantity + 1)}>+</button>
                             </div>
@@ -49,17 +49,17 @@ export const Product = () => {
                                 {data?.attributes?.desc}
                             </p>
                             <button className='card-btn'
-                                onClick={() => 
-                                    
-                                { alert("Product added successfully");
+                                onClick={() => {
+                                    alert("Product added successfully");
                                     dispatch(addToCart({
-                                    id: data.id,
-                                    title: data.attributes.title,
-                                    price: data.attributes.price,
-                                    img: process.env.REACT_APP_UPLOAD_URL + data.attributes?.img?.data?.attributes?.url,
-                                    quantity,
-                                })) }
-                                
+                                        id: data.id,
+                                        title: data.attributes.title,
+                                        price: data.attributes.price,
+                                        img: process.env.REACT_APP_UPLOAD_URL + data.attributes?.img?.data?.attributes?.url,
+                                        quantity,
+                                    }))
+                                }
+
                                 }>
                                 Add to Cart
                             </button>
