@@ -4,13 +4,13 @@ import { Card } from '../Card/Card'
 import './Featured.scss'
 import useFetch from '../../hooks/useFetch'
 
-import {localData} from '../../assets/local/localData'
+import { localData } from '../../assets/local/localData'
 
 export const Featured = () => {
 
     const { data, loading, error } = useFetch("/products?populate=*&[filters][featured]=true")
     //map over data array and return a Card component for each item 
-    
+    console.log(data)
     return (
         <div className='featured'>
             <h1>Get the best desi fits</h1>
@@ -23,7 +23,7 @@ export const Featured = () => {
 
             <div className='card-container'>
                 {error
-                    ?"something went wrong" 
+                    ? "something went wrong"
                     : loading
                         ? "loading..."
                         : data.map((item) =>
