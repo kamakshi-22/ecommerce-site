@@ -1,4 +1,4 @@
-# Nayika - E-commerce Site 🛒
+# E-commerce Site 🛒
 
 * Responsive ecommerce website built with React, Strapi, and Stripe.
 * Includes product details pages, a shopping cart, and a checkout process.
